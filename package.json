@@ -17,8 +17,8 @@
   ],
   "preferences": [
     {
-      "name": "apiKey",
-      "title": "IGDB API Key",
+      "name": "clientID",
+      "title": "IGDB Client ID",
       "description": "Your IGDB API Key",
       "type": "password",
       "default": "",

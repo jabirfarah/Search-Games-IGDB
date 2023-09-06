@@ -20,7 +20,7 @@ interface Cover {
 }
 
 interface Preferences {
-  apiKey: string,
+  clientID: string,
   accessToken: string,
 }
 
@@ -48,14 +48,14 @@ export default function Command() {
 
       headers: {
         'Accept': 'application/json',
-        'Client-ID': `${preferences.apiKey}`,
+        'Client-ID': `${preferences.clientID}`,
 
         'Authorization': `Bearer ${preferences.accessToken}`,
     }
     }
 
     try {
-      const response = await igdb(`${preferences.apiKey}`, `Bearer ${preferences.accessToken}`, requestOptions)
+      const response = await igdb(`${preferences.clientID}`, `Bearer ${preferences.accessToken}`, requestOptions)
       .fields(['name', 'cover.image_id', 'url', 'summary', 'total_rating', 'release_dates.human', 'category'])
       .search(query)
       .limit(10)
@@ -86,7 +86,7 @@ export default function Command() {
                     key={gameItem.id}
                     title={gameItem.name}
 
-                    icon={gameItem.cover?.image_id ? `https://images.igdb.com/igdb/image/upload/t_cover_small/${gameItem.cover.image_id}.jpg`: "command-icon.png"}
+                    icon={gameItem.cover?.image_id ? `https://images.igdb.com/igdb/image/upload/t_cover_small/${gameItem.cover.image_id}.jpg`: "game-icon.png"}
                     detail={
                       <List.Item.Detail
                         markdown={`![Game Banner](https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${gameItem.cover?.image_id}.jpg)
@@ -99,9 +99,7 @@ export default function Command() {
                             <List.Item.Detail.Metadata.Label title="Title" text={gameItem.name ?? "Unknown"} />
                             <List.Item.Detail.Metadata.Label title="Rating" text={`${Math.round(gameItem.total_rating).toString() == "NaN" ? `N/A` : `${Math.round(gameItem.total_rating).toString()}/100`}`} />
                             <List.Item.Detail.Metadata.Label title="Release Date" text={`${undefined == gameItem.release_dates ? `N/A` : gameItem.release_dates[0].human}`} />
-                            
-                            <List.Item.Detail.Metadata.Label title="Type" text={"getGameType(gameItem.category)"} />
-                            
+                                                        
                             <List.Item.Detail.Metadata.Separator />
                           </List.Item.Detail.Metadata>
                         }
