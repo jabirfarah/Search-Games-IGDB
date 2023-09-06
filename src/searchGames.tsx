@@ -40,6 +40,7 @@ export default function Command() {
       setIsLoading(false)
       return;
     }
+    
     setIsLoading(true);
     const requestOptions = {
       method: "post",
