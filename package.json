@@ -3,7 +3,7 @@
   "name": "search-igdb",
   "title": "Search IGDB",
   "description": "Use IGDB and find hundreds of thousands of games right from Raycast!",
-  "icon": "command-icon.png",
+  "icon": "igdb-icon.png",
   "author": "jabir",
   "license": "MIT",
   "commands": [
@@ -14,6 +14,25 @@
       "description": "Search for games by name",
       "mode": "view"
     }
+  ],
+  "preferences": [
+    {
+      "name": "apiKey",
+      "title": "IGDB API Key",
+      "description": "Your IGDB API Key",
+      "type": "password",
+      "default": "",
+      "required": true
+    },
+    {
+      "name": "accessToken",
+      "title": "IGDB Access Token",
+      "description": "Your IGDB Access Token",
+      "type": "password",
+      "default": "",
+      "required": true
+    }
+
   ],
   "dependencies": {
     "@raycast/api": "^1.57.2",
