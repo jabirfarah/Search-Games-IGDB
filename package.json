@@ -1,0 +1,37 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "search-igdb",
+  "title": "Search IGDB",
+  "description": "Use IGDB and find hundreds of thousands of games right from Raycast!",
+  "icon": "command-icon.png",
+  "author": "jabir",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "searchGames",
+      "title": "Search Games",
+      "subtitle": "IGDB",
+      "description": "Search for games by name",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.57.2",
+    "igdb-api-node": "^5.0.2"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "1.0.5",
+    "@types/node": "18.8.3",
+    "@types/react": "18.0.9",
+    "eslint": "^7.32.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
